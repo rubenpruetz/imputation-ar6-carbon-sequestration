@@ -1,4 +1,4 @@
-# imputation-AR6-carbon-sequestration
+# imputation-ar6-carbon-sequestration
 
 This repository is linked to the following preprint:
 
