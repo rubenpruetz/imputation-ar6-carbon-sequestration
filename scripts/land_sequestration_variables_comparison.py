@@ -5,22 +5,20 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # specify filepaths and files to be imported
-filepath_ar6 = '/Users/rubenprutz/Documents/PhD/PROVIDE/Work Package 1/Deliverable 1.1/'
+filepath = '/Users/rubenprutz/Documents/phd/datasets/'  # specify filepath to ar6 db
 ar6_data_file = 'AR6_Scenarios_Database_World_v1.1.csv'
 meta_file = 'AR6_Scenarios_Database_metadata_indicators_v1.1.xlsx'
-
-filepath_gidden = '/Users/rubenprutz/Downloads/'
 gidden_etal_file = '10.5281_zenodo.10158920_gidden_et_al_2023_ar6_reanalysis_data.xlsx'
 
 numeric_cols = [str(year) for year in range(2020, 2110, 10)]
 
 # load datasets
-ar6_data = pd.read_csv(filepath_ar6 + ar6_data_file)
-gidden_etal = pd.read_excel(filepath_gidden + gidden_etal_file,
-                           sheet_name='data')
+ar6_data = pd.read_csv(filepath + ar6_data_file)
+gidden_etal = pd.read_excel(filepath + gidden_etal_file,
+                            sheet_name='data')
 gidden_etal.columns = gidden_etal.columns.astype(str)
 
-df_ar6_meta = pd.read_excel(filepath_ar6 + meta_file,
+df_ar6_meta = pd.read_excel(filepath + meta_file,
                             sheet_name='meta_Ch3vetted_withclimate')
 
 # filter C1-8 scenarios and select columns
@@ -99,7 +97,7 @@ plot_df['Variable'].replace({'Carbon Sequestration|Land Use': 'AR6 Land CDR',
                              'Gidden et al. Land CDR (direct)',
                              'netAFOLU_CDR':
                              'Net negative AFOLU CO$_2$'},
-                              inplace=True)
+                            inplace=True)
 
 plt.rcParams.update({'figure.dpi': 600})
 g = sns.relplot(x='variable',
@@ -129,8 +127,5 @@ plt.ylim(-5500, 10000)
 g.set_xlabels('', clear_inner=False)
 plt.subplots_adjust(wspace=0.35)
 
-sns.move_legend(g,
-                'upper right',
-                bbox_to_anchor=(0.735, 1.035),
-                ncols=3,
-                title='')
+sns.move_legend(g, 'upper right', bbox_to_anchor=(0.735, 1.035),
+                ncols=3, title='')
