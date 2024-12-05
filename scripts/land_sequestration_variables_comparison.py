@@ -5,7 +5,7 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 
 # specify filepaths and files to be imported
-filepath = '/Users/rubenprutz/Documents/phd/datasets/'  # specify filepath to ar6 db
+filepath = '/Users/rpruetz/Documents/phd/datasets/'  # specify filepath to ar6 db
 ar6_data_file = 'AR6_Scenarios_Database_World_v1.1.csv'
 meta_file = 'AR6_Scenarios_Database_metadata_indicators_v1.1.xlsx'
 gidden_etal_file = '10.5281_zenodo.10158920_gidden_et_al_2023_ar6_reanalysis_data.xlsx'
@@ -129,3 +129,4 @@ plt.subplots_adjust(wspace=0.35)
 
 sns.move_legend(g, 'upper right', bbox_to_anchor=(0.735, 1.035),
                 ncols=3, title='')
+plt.show()
