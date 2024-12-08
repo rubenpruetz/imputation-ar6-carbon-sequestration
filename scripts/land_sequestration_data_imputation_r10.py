@@ -14,16 +14,17 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.utils import resample
 from joblib import Parallel, delayed
 from time import time
+from pathlib import Path
 
 # specify filepaths and files to be imported
-path_ar6_data = '/Users/rubenprutz/Documents/phd/datasets/'  # specify path to ar6 data db
-path = '/Users/rubenprutz/Documents/phd/primary/analyses/cdr_imputation_ar6/data/'  # specify output path
+path_ar6_data = Path('/Users/rpruetz/Documents/phd/datasets/')  # specify ar6 db Path
+path_output = Path('/Users/rpruetz/Documents/phd/primary/analyses/cdr_imputation_ar6/data/')
 
 
 meta_file = 'AR6_Scenarios_Database_metadata_indicators_v1.1.xlsx'
 filename = 'AR6_Scenarios_Database_R10_regions_v1.1.csv'
-ar6_db = pd.read_csv(path_ar6_data + filename)
-df_ar6_meta = pd.read_excel(path_ar6_data + meta_file,
+ar6_db = pd.read_csv(path_ar6_data / filename)
+df_ar6_meta = pd.read_excel(path_ar6_data / meta_file,
                             sheet_name='meta_Ch3vetted_withclimate')
 ar6_db = pd.merge(ar6_db,
                   df_ar6_meta,
@@ -435,7 +436,7 @@ for index, row in ar6_landseq_netAFOLU.iterrows():
 imputed_data_adjust = pd.concat([imputed_data_adjust, ar6_landseq_netAFOLU])
 
 # write data to excel
-with pd.ExcelWriter(path + 'Prütz_et_al_2024_ar6_land_sequestration_imputation_R10_regions_v1.1.xlsx',
+with pd.ExcelWriter(path_output / 'Prütz_et_al_2024_ar6_land_sequestration_imputation_R10_regions_v1.1.xlsx',
                     engine='openpyxl') as writer:
     imputed_data_df.to_excel(
         writer, sheet_name='Imputation_output', index=False)
