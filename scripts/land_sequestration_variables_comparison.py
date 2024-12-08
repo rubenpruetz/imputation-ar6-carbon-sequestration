@@ -3,9 +3,10 @@
 import pandas as pd
 import matplotlib.pyplot as plt
 import seaborn as sns
+from pathlib import Path
 
 # specify filepaths and files to be imported
-filepath = '/Users/rpruetz/Documents/phd/datasets/'  # specify filepath to ar6 db
+path = Path('/Users/rpruetz/Documents/phd/datasets/')  # specify filepath to ar6 db
 ar6_data_file = 'AR6_Scenarios_Database_World_v1.1.csv'
 meta_file = 'AR6_Scenarios_Database_metadata_indicators_v1.1.xlsx'
 gidden_etal_file = '10.5281_zenodo.10158920_gidden_et_al_2023_ar6_reanalysis_data.xlsx'
@@ -13,12 +14,12 @@ gidden_etal_file = '10.5281_zenodo.10158920_gidden_et_al_2023_ar6_reanalysis_dat
 numeric_cols = [str(year) for year in range(2020, 2110, 10)]
 
 # load datasets
-ar6_data = pd.read_csv(filepath + ar6_data_file)
-gidden_etal = pd.read_excel(filepath + gidden_etal_file,
+ar6_data = pd.read_csv(path / ar6_data_file)
+gidden_etal = pd.read_excel(path / gidden_etal_file,
                             sheet_name='data')
 gidden_etal.columns = gidden_etal.columns.astype(str)
 
-df_ar6_meta = pd.read_excel(filepath + meta_file,
+df_ar6_meta = pd.read_excel(path / meta_file,
                             sheet_name='meta_Ch3vetted_withclimate')
 
 # filter C1-8 scenarios and select columns
