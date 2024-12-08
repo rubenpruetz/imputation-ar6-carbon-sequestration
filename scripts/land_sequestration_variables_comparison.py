@@ -6,7 +6,7 @@ import seaborn as sns
 from pathlib import Path
 
 # specify filepaths and files to be imported
-path = Path('/Users/rpruetz/Documents/phd/datasets/')  # specify filepath to ar6 db
+path = Path('/Users/rpruetz/Documents/phd/datasets/')  # specify ar6 db path
 ar6_data_file = 'AR6_Scenarios_Database_World_v1.1.csv'
 meta_file = 'AR6_Scenarios_Database_metadata_indicators_v1.1.xlsx'
 gidden_etal_file = '10.5281_zenodo.10158920_gidden_et_al_2023_ar6_reanalysis_data.xlsx'
