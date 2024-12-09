@@ -252,6 +252,7 @@ plt.xticks([0, 4, 8], ['2020', '2060', '2100'])
 plt.subplots_adjust(wspace=0.8)
 sns.move_legend(axs[0], 'lower left',
                 bbox_to_anchor=(-0.05, 1.02), ncols=5, title='', frameon=False)
+plt.show()
 
 # %% plot predicted versus actual of best performing model
 
