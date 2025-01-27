@@ -1,8 +1,8 @@
 # imputation-ar6-carbon-sequestration
 
-This repository is linked to the following preprint:
+This repository is linked to the following research article:
 
-Prütz, R., Fuss, S., and Rogelj, J.: Imputation of missing IPCC AR6 data on land carbon sequestration, Earth Syst. Sci. Data Discuss. [preprint], https://doi.org/10.5194/essd-2024-68, in review, 2024.
+- Prütz, R., Fuss, S., and Rogelj, J.: Imputation of missing land carbon sequestration data in the AR6 Scenarios Database, Earth Syst. Sci. Data, 2025. https://doi.org/10.5194/essd-17-221-2025 
 
 This repository includes: 
 - An imputation dataset for missing land carbon sequestation data of the AR6 Scenario Database for global scenarios and R10 scenario variants
